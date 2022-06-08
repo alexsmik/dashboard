@@ -1,1 +1,1 @@
-# control-panel-
+syncfusion control panel - dashboard
