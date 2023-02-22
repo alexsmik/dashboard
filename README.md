@@ -1,1 +1,1 @@
-dashboard
+dashboard control-panel
