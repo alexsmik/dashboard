@@ -3,7 +3,7 @@ import React from 'react';
 export const gridOrderImage = (props) => (
   <div>
     <img
-      className="rounded-xl h-20 md:ml-3"
+      className="rounded-xl "
       src={props.ProductImage}
       alt="order-item"
     />
