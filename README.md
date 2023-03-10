@@ -1,1 +1,0 @@
-dashboard control-panel
