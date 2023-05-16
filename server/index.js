@@ -37,6 +37,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
+// production mode build(dist) frontend in backend
+app.use(express.static('dist'));
+
 /* ROUTES */
 app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
