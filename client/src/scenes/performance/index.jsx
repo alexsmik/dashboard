@@ -1,10 +1,10 @@
-import React from "react";
-import { Box, useTheme } from "@mui/material";
-import { useGetUserPerformanceQuery } from "state/api";
-import { useSelector } from "react-redux";
-import { DataGrid } from "@mui/x-data-grid";
-import Header from "components/Header";
-import CustomColumnMenu from "components/DataGridCustomColumnMenu";
+import React from 'react';
+import { Box, useTheme } from '@mui/material';
+import { useGetUserPerformanceQuery } from 'state/api';
+import { useSelector } from 'react-redux';
+import { DataGrid } from '@mui/x-data-grid';
+import Header from 'components/Header';
+import CustomColumnMenu from 'components/DataGridCustomColumnMenu';
 
 const Performance = () => {
   const theme = useTheme();
@@ -13,30 +13,30 @@ const Performance = () => {
 
   const columns = [
     {
-      field: "_id",
-      headerName: "ID",
+      field: '_id',
+      headerName: 'ID',
       flex: 1,
     },
     {
-      field: "userId",
-      headerName: "User ID",
+      field: 'userId',
+      headerName: 'User ID',
       flex: 1,
     },
     {
-      field: "createdAt",
-      headerName: "CreatedAt",
+      field: 'createdAt',
+      headerName: 'Создан',
       flex: 1,
     },
     {
-      field: "products",
-      headerName: "# of Products",
+      field: 'products',
+      headerName: '# продуктов',
       flex: 0.5,
       sortable: false,
       renderCell: (params) => params.value.length,
     },
     {
-      field: "cost",
-      headerName: "Cost",
+      field: 'cost',
+      headerName: 'Cost',
       flex: 1,
       renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
     },
@@ -45,33 +45,33 @@ const Performance = () => {
   return (
     <Box m="1.5rem 2.5rem">
       <Header
-        title="PERFORMANCE"
-        subtitle="Track your Affiliate Sales Performance Here"
+        title="Показатели продаж"
+        subtitle="Показатели филиалов компании"
       />
       <Box
         mt="40px"
         height="75vh"
         sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
+          '& .MuiDataGrid-root': {
+            border: 'none',
           },
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none",
+          '& .MuiDataGrid-cell': {
+            borderBottom: 'none',
           },
-          "& .MuiDataGrid-columnHeaders": {
+          '& .MuiDataGrid-columnHeaders': {
             backgroundColor: theme.palette.background.alt,
             color: theme.palette.secondary[100],
-            borderBottom: "none",
+            borderBottom: 'none',
           },
-          "& .MuiDataGrid-virtualScroller": {
+          '& .MuiDataGrid-virtualScroller': {
             backgroundColor: theme.palette.primary.light,
           },
-          "& .MuiDataGrid-footerContainer": {
+          '& .MuiDataGrid-footerContainer': {
             backgroundColor: theme.palette.background.alt,
             color: theme.palette.secondary[100],
-            borderTop: "none",
+            borderTop: 'none',
           },
-          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+          '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
             color: `${theme.palette.secondary[200]} !important`,
           },
         }}

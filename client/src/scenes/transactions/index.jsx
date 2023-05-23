@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Box, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
-import { useGetTransactionsQuery } from "state/api";
-import Header from "components/Header";
-import DataGridCustomToolbar from "components/DataGridCustomToolbar";
+import React, { useState } from 'react';
+import { Box, useTheme } from '@mui/material';
+import { DataGrid } from '@mui/x-data-grid';
+import { useGetTransactionsQuery } from 'state/api';
+import Header from 'components/Header';
+import DataGridCustomToolbar from 'components/DataGridCustomToolbar';
 
 const Transactions = () => {
   const theme = useTheme();
@@ -12,9 +12,9 @@ const Transactions = () => {
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(20);
   const [sort, setSort] = useState({});
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState('');
   const { data, isLoading } = useGetTransactionsQuery({
     page,
     pageSize,
@@ -24,30 +24,30 @@ const Transactions = () => {
 
   const columns = [
     {
-      field: "_id",
-      headerName: "ID",
+      field: '_id',
+      headerName: 'ID',
       flex: 1,
     },
     {
-      field: "userId",
-      headerName: "User ID",
+      field: 'userId',
+      headerName: 'Номер клиента',
       flex: 1,
     },
     {
-      field: "createdAt",
-      headerName: "CreatedAt",
+      field: 'createdAt',
+      headerName: 'Создан',
       flex: 1,
     },
     {
-      field: "products",
-      headerName: "# of Products",
+      field: 'products',
+      headerName: '# продуктов',
       flex: 0.5,
       sortable: false,
       renderCell: (params) => params.value.length,
     },
     {
-      field: "cost",
-      headerName: "Cost",
+      field: 'cost',
+      headerName: 'Цена',
       flex: 1,
       renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
     },
@@ -55,30 +55,30 @@ const Transactions = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="TRANSACTIONS" subtitle="Entire list of transactions" />
+      <Header title="Транзакции \ Сделки" subtitle="Общий лист транзакций" />
       <Box
         height="80vh"
         sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
+          '& .MuiDataGrid-root': {
+            border: 'none',
           },
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none",
+          '& .MuiDataGrid-cell': {
+            borderBottom: 'none',
           },
-          "& .MuiDataGrid-columnHeaders": {
+          '& .MuiDataGrid-columnHeaders': {
             backgroundColor: theme.palette.background.alt,
             color: theme.palette.secondary[100],
-            borderBottom: "none",
+            borderBottom: 'none',
           },
-          "& .MuiDataGrid-virtualScroller": {
+          '& .MuiDataGrid-virtualScroller': {
             backgroundColor: theme.palette.primary.light,
           },
-          "& .MuiDataGrid-footerContainer": {
+          '& .MuiDataGrid-footerContainer': {
             backgroundColor: theme.palette.background.alt,
             color: theme.palette.secondary[100],
-            borderTop: "none",
+            borderTop: 'none',
           },
-          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+          '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
             color: `${theme.palette.secondary[200]} !important`,
           },
         }}
@@ -101,6 +101,28 @@ const Transactions = () => {
           components={{ Toolbar: DataGridCustomToolbar }}
           componentsProps={{
             toolbar: { searchInput, setSearchInput, setSearch },
+          }}
+          localeText={{
+            // https://mui.com/x/react-data-grid/localization/
+            toolbarDensity: 'Размер',
+            toolbarDensityCompact: 'Уменшить',
+            toolbarDensityStandard: 'Средний',
+            toolbarDensityComfortable: 'Большой',
+            toolbarColumns: 'Колонки',
+            toolbarColumnsLabel: 'Выделить колонки',
+            // Columns panel text
+            columnsPanelTextFieldLabel: 'Найти колонку',
+            columnsPanelTextFieldPlaceholder: 'Заголовок колонки',
+            columnsPanelDragIconLabel: 'Порядок колонок',
+            columnsPanelShowAllButton: 'Показать все',
+            columnsPanelHideAllButton: 'Скрыть все',
+
+            // Export selector toolbar button text
+            toolbarExport: 'Экспорт',
+            toolbarExportLabel: 'Экспорт',
+            toolbarExportCSV: 'Сохранить таблицу',
+            toolbarExportPrint: 'Печать',
+            toolbarExportExcel: 'Сохранить таблицу Excel',
           }}
         />
       </Box>

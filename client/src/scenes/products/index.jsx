@@ -59,7 +59,7 @@ const Product = ({
           size="small"
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          See More
+          Подробнее
         </Button>
       </CardActions>
       <Collapse
@@ -72,12 +72,12 @@ const Product = ({
       >
         <CardContent>
           <Typography>id: {_id}</Typography>
-          <Typography>Supply Left: {supply}</Typography>
+          <Typography>Поставки: {supply}</Typography>
           <Typography>
-            Yearly Sales This Year: {stat.yearlySalesTotal}
+            Продажи за год: {stat.yearlySalesTotal}
           </Typography>
           <Typography>
-            Yearly Units Sold This Year: {stat.yearlyTotalSoldUnits}
+            Товары за год: {stat.yearlyTotalSoldUnits}
           </Typography>
         </CardContent>
       </Collapse>
@@ -91,7 +91,7 @@ const Products = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="PRODUCTS" subtitle="See your list of products." />
+      <Header title="Товары" subtitle="Таблица товаров." />
       {data || !isLoading ? (
         <Box
           mt="20px"
