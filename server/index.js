@@ -39,7 +39,7 @@ app.set('trust proxy', 1);
 app.use(cors());
 
 // production mode build(dist) frontend in backend
-app.use(express.static('dist'));
+// app.use(express.static('dist'));
 
 /* ROUTES */
 app.use('/client', clientRoutes);
